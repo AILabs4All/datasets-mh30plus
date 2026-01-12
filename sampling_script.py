@@ -140,7 +140,7 @@ if __name__ == "__main__":
     
     # Generate output filename based on sampling strategy
     base_name = arguments.input_dataset.replace('.csv', '')
-    new_file_name = f"{base_name}_{arguments.sampling_strategy}.csv"
+    new_file_name = f"{base_name}_balanced_{arguments.sampling_strategy}.csv"
     
     # Save the resampled dataset
     resampled_df.to_csv(new_file_name, index=False, sep=',', header=True)
