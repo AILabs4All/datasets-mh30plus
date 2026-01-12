@@ -107,7 +107,7 @@ def validation(dataset_path):
         return -1
 if __name__ == "__main__":
     arguments = argumentos()
-    print("Starting SMOTE oversampling...")
+    print("Starting SMOTE " + arguments.sampling_strategy) 
     
     # Load and clean dataset
     dataset_file_loaded = pd.read_csv(arguments.input_dataset,dtype=np.uint8)
