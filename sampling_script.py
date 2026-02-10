@@ -1,8 +1,10 @@
 import pandas as pd
 import numpy as np
 from imblearn.over_sampling import SMOTE
+from imblearn.over_sampling import SMOTENC
 from sklearn.preprocessing import StandardScaler
 from imblearn.under_sampling import RandomUnderSampler
+from imblearn.over_sampling import RandomOverSampler
 import argparse
 import warnings
 import ssl
@@ -128,15 +130,16 @@ if __name__ == "__main__":
     minority_class = class_counts.idxmin()
     if arguments.sampling_strategy == "oversampling":
         # SMOTE for oversampling the minority class
-        smote = SMOTE(sampling_strategy="minority", random_state=42, k_neighbors=5)
-        X_resampled, y_resampled = smote.fit_resample(X, y)
+        ros = RandomOverSampler(sampling_strategy="minority", random_state=42)
+        X_resampled, y_resampled = ros.fit_resample(X, y)
     elif arguments.sampling_strategy == "undersampling":
         # RandomUnderSampler for undersampling the majority class
         rus = RandomUnderSampler(sampling_strategy='majority', random_state=42)
         X_resampled, y_resampled = rus.fit_resample(X, y)
-    X_df = pd.DataFrame(X_resampled, columns=X.columns)
-    y_series = pd.Series(y_resampled, name=arguments.target_class)
-    resampled_df = pd.concat([X_df, y_series], axis=1)
+ 
+    resampled_df = resampled_df = pd.concat(
+    [pd.DataFrame(y_resampled), pd.DataFrame(X_resampled)],
+    axis=1,)
     
     # Generate output filename based on sampling strategy
     base_name = arguments.input_dataset.replace('.csv', '')
