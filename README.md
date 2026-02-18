@@ -16,17 +16,17 @@ The goal is to support experiments related to:
 
 | Dataset                         | Method      | Features (Full) | Features (Reduced) | Benigns / Malwares (Under) | Benigns / Malwares (Over) | Undersampling      | Oversampling      |
 | ------------------------------- | ----------- | --------------- | ------------------ | -------------------------- | ------------------------- | ------------------ | ----------------- |
-| mh100k                          | statistical | 24,833          | 93                 | 9,800                      | 92,175                    | RandomUnderSampler | RandomOverSampler |
-| kronodroid_real_device          | statistical | 286             | 29                 | 36,755                     | 41,382                    | RandomUnderSampler | RandomOverSampler |
-| kronodroid_emulator             | statistical | 286             | 25                 | 28,745                     | 35,246                    | RandomUnderSampler | RandomOverSampler |
-| drebin215                       | rfe         | 215             | 64                 | 5,555                      | 9,476                     | RandomUnderSampler | RandomOverSampler |
-| defensedroid_prs                | semidroid   | 2,877           | 144                | 5,975                      | 6,000                     | RandomUnderSampler | RandomOverSampler |
+| mh100k                          | statistical | 24,833          | 93                 | 9,800                      | 92,175                    | EditedNearestNeighbours | RandomOverSampler |
+| kronodroid_real_device          | statistical | 286             | 29                 | 36,755                     | 41,382                    | EditedNearestNeighbours | RandomOverSampler |
+| kronodroid_emulator             | statistical | 286             | 25                 | 28,745                     | 35,246                    | RandomUnderSampler | SMOTE |
+| drebin215                       | rfe         | 215             | 64                 | 5,555                      | 9,476                     | RandomUnderSampler | SMOTE |
+| defensedroid_prs                | semidroid   | 2,877           | 144                | 5,975                      | 6,000                     | EditedNearestNeighbours | SMOTE |
 | defensedroid_apicalls_katz      | rfe         | 6,002           | 300                | 5,222                      | 5,254                     | RandomUnderSampler | RandomOverSampler |
 | defensedroid_apicalls_degree    | rfe         | 6,002           | 300                | 5,222                      | 5,254                     | RandomUnderSampler | RandomOverSampler |
-| defensedroid_apicalls_closeness | rfe         | 4,274           | 213                | 5,222                      | 5,254                     | RandomUnderSampler | RandomOverSampler |
-| android_permissions             | semidroid   | 151             | 57                 | 9,077                      | 17,787                    | RandomUnderSampler | RandomOverSampler |
-| androcrawl                      | statistical | 141             | 13                 | 10,170                     | 86,574                    | RandomUnderSampler | RandomOverSampler |
-| adroit                          | rfe         | 166             | 66                 | 3,418                      | 8,058                     | RandomUnderSampler | RandomOverSampler |
+| defensedroid_apicalls_closeness | rfe         | 4,274           | 213                | 5,222                      | 5,254                     | EditedNearestNeighbours | RandomOverSampler |
+| android_permissions             | semidroid   | 151             | 57                 | 9,077                      | 17,787                    | RandomUnderSampler | ADASYN |
+| androcrawl                      | statistical | 141             | 13                 | 10,170                     | 86,574                    | RandomUnderSampler | ADASYN |
+| adroit                          | rfe         | 166             | 66                 | 3,418                      | 8,058                     | RandomUnderSampler | SMOTE |
 
 ---
 
