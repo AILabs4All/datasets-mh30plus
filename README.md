@@ -42,19 +42,36 @@ The reduced datasets were generated using the following feature selection strate
 
 # ⚖️ Dataset Balancing
 
-To mitigate class imbalance, the following techniques were applied:
+To mitigate class imbalance, different undersampling and oversampling techniques were applied depending on each dataset’s characteristics.
 
-## 🔻 Undersampling
+Balancing was performed **after feature reduction** to preserve dataset structure.
 
-* Method: `RandomUnderSampler`
-* Goal: Reduce majority class size
+---
 
-## 🔺 Oversampling
+## 🔻 Undersampling Methods
 
-* Method: `RandomOverSampler`
-* Goal: Increase minority class representation
+Techniques used to reduce the number of samples from the majority class:
 
-Balancing was applied after feature reduction to preserve dataset structure.
+* **RandomUnderSampler** → Randomly removes samples from the majority class.
+* **Edited Nearest Neighbours (ENN)** → Removes noisy or ambiguous majority samples based on nearest neighbors analysis.
+
+---
+
+## 🔺 Oversampling Methods
+
+Techniques used to increase minority class representation:
+
+* **RandomOverSampler** → Randomly duplicates minority samples.
+* **SMOTE** → Generates synthetic samples using nearest neighbors interpolation.
+* **ADASYN** → Generates synthetic samples focusing on harder minority regions.
+
+---
+
+Different balancing strategies were selected according to:
+
+* Imbalance ratio
+* Dataset size
+* Feature dimensionality
 
 ---
 
