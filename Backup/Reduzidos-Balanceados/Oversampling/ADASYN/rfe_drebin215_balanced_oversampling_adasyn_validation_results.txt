@@ -1,0 +1,4 @@
+Number of malware samples (class=1): 9437
+Number of benign samples (class=0): 9476
+Number of columns: 65
+Number of rows: 18913

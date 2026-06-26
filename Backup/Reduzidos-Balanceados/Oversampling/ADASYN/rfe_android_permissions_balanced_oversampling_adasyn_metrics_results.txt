@@ -1,0 +1,12 @@
+
+Métricas testando com os dados reais:
+Acurácia: 0.6772752652149637
+Precisão: 0.6986564299424184
+Recall: 0.9107589658048374
+F1-Score: 0.7907313540912382
+
+Métricas testando com os dados transformados:
+Acurácia: 0.5940648723257419
+Precisão: 0.5560302333223792
+Recall: 0.934032569693624
+F1-Score: 0.6970851787001751
