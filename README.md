@@ -16,15 +16,15 @@ The goal is to support experiments related to:
 
 | Dataset                         | Method      | Features (Full) | Features (Reduced) | Benigns / Malwares (Under) | Benigns / Malwares (Over) | Undersampling      | Oversampling      |
 | ------------------------------- | ----------- | --------------- | ------------------ | -------------------------- | ------------------------- | ------------------ | ----------------- |
-| mh100k                          | statistical | 24,833          | 93                 | 9,800                      | 92,175                    | ENN + RandomOverSampler | RandomOverSampler |
-| kronodroid_real_device          | statistical | 286             | 29                 | 36,755                     | 41,382                    | ENN + RandomOverSampler | ADASYN |
-| kronodroid_emulator             | statistical | 286             | 25                 | 28,745                     | 35,246                    | ENN + RandomOverSampler | SMOTE |
-| drebin215                       | rfe         | 215             | 64                 | 5,555                      | 9,476                     | ENN + RandomOverSampler | SMOTE |
-| defensedroid_prs                | semidroid   | 2,877           | 144                | 5,975                      | 6,000                     | ENN + RandomOverSampler | RandomOverSampler |
-| defensedroid_apicalls_katz      | rfe         | 6,002           | 300                | 5,222                      | 5,254                     | ENN + RandomOverSampler | RandomOverSampler |
-| defensedroid_apicalls_degree    | rfe         | 6,002           | 300                | 5,222                      | 5,254                     | ENN + RandomOverSampler | RandomOverSampler |
-| defensedroid_apicalls_closeness | rfe         | 4,274           | 213                | 5,222                      | 5,254                     | ENN + RandomOverSampler | RandomOverSampler |
-| android_permissions             | statistical   | 151             | 57                 | 9,077                      | 17,787                    | ENN + RandomOverSampler | SMOTE |
+| mh100k                          | statistical | 24,833          | 93                 | 9,800                      | 92,175                    | ENN + RandomUnderSampler | RandomOverSampler |
+| kronodroid_real_device          | statistical | 286             | 29                 | 36,755                     | 41,382                    | ENN + RandomUnderSampler | ADASYN |
+| kronodroid_emulator             | statistical | 286             | 25                 | 28,745                     | 35,246                    | ENN + RandomUnderSampler | SMOTE |
+| drebin215                       | rfe         | 215             | 64                 | 5,555                      | 9,476                     | ENN + RandomUnderSampler | SMOTE |
+| defensedroid_prs                | semidroid   | 2,877           | 144                | 5,975                      | 6,000                     | ENN + RandomUnderSampler | RandomOverSampler |
+| defensedroid_apicalls_katz      | rfe         | 6,002           | 300                | 5,222                      | 5,254                     | ENN + RandomUnderSampler | RandomOverSampler |
+| defensedroid_apicalls_degree    | rfe         | 6,002           | 300                | 5,222                      | 5,254                     | ENN + RandomUnderSampler | RandomOverSampler |
+| defensedroid_apicalls_closeness | rfe         | 4,274           | 213                | 5,222                      | 5,254                     | ENN + RandomUnderSampler | RandomOverSampler |
+| android_permissions             | statistical   | 151             | 57                 | 9,077                      | 17,787                    | ENN + RandomUnderSampler | SMOTE |
 | androcrawl                      | statistical | 141             | 13                 | 10,170                     | 86,574                    | Nearmiss | SMOTE |
 | adroit                          | rfe         | 166             | 66                 | 3,418                      | 8,058                     | Mearmiss | RamdonOver |
 
