@@ -26,7 +26,7 @@ The goal is to support experiments related to:
 | defensedroid_apicalls_closeness | rfe         | 4,274           | 213                | 5,222                      | 5,254                     | ENN + RandomUnderSampler | RandomOverSampler |
 | android_permissions             | statistical   | 151             | 57                 | 9,077                      | 17,787                    | ENN + RandomUnderSampler | SMOTE |
 | androcrawl                      | statistical | 141             | 13                 | 10,170                     | 86,574                    | Nearmiss | SMOTE |
-| adroit                          | rfe         | 166             | 66                 | 3,418                      | 8,058                     | Mearmiss | RamdonOver |
+| adroit                          | rfe         | 166             | 66                 | 3,418                      | 8,058                     | Mearmiss | RamdonOverSampler |
 
 ---
 
