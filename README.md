@@ -68,8 +68,8 @@ The artifact consists of:
 ### Hardware requirements
 
 - **CPU:** 4 cores or more (recommended)
-- **RAM:** minimum **8 GB**; **16 GB** recommended for the larger datasets (`mh100k` and `androcrawl`)
-- **Disk:** approximately **2–5 GB** free for the datasets and outputs
+- **RAM:** minimum **16 GB**; **64 GB** recommended for the larger datasets (`mh100k` and `androcrawl`)
+- **Disk:** approximately **10–50 GB** free for the datasets and outputs
 - **GPU (optional):** recommended for the AE/VAE experiments, which train for 300 epochs with 5-fold validation
 
 > ⏱️ **Expected runtimes:**
