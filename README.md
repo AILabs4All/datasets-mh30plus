@@ -231,7 +231,7 @@ For *undersampling*, example with `mh100k` (ENN + RandomUnderSampler):
 
 ```bash
 python sampling_script.py \
-  -i Reduzidos/mh100k.csv \
+  -i Reduzidos/kronodroid_emulator.csv \
   -t class \
   -s undersampling \
   -m enn \
