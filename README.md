@@ -262,7 +262,7 @@ python sampling_script.py \
   -o Balanced_Datasets
 ```
 
-- **Expected resources:** up to ~4–8 GB of RAM for the larger datasets; seconds to a few minutes per dataset.
+- **Expected resources:** up to ~64 GB of RAM for the larger datasets; minutes to a few hours per dataset.
 - **Expected result:** a balanced CSV with an approximately equal class distribution, plus the corresponding `_validation_results.txt` and `_metrics_results.txt` files.
 
 > 📈 **Paper's central claim:** combining dimensionality reduction with class balancing improves performance in 7 of the 11 datasets but degrades it in 4. For `mh100k`, comparing the reduced version without balancing to the reduced + balanced version, Recall rises from **0.63 to 0.99**, with an ~99% reduction in execution time. The `_metrics_results.txt` files allow verifying Recall and F1-score, and the timing output in the terminal allows comparing execution cost.
