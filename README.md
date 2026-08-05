@@ -46,7 +46,7 @@ datasets-mh30plus/
 
 # 🏅 Considered Badges
 
-The badges considered for this artifact are: **Available (SeloD)**, **Functional (SeloF)**, and **Sustainable (SeloS)**.
+The badges considered for this artifact are: **Available (SeloD)**, **Reproducible (SeloR)**, **Functional (SeloF)**, and **Sustainable (SeloS)**.
 
 
 ---
