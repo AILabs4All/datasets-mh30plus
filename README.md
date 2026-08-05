@@ -48,7 +48,6 @@ datasets-mh30plus/
 
 The badges considered for this artifact are: **Available (SeloD)**, **Functional (SeloF)**, and **Sustainable (SeloS)**.
 
-> ℹ️ Adjust according to the badges actually requested. If you seek the **Reproducible (SeloR)** badge, the _Experiments_ section must allow full reproduction of the paper's tables/figures.
 
 ---
 
