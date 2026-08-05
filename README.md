@@ -238,6 +238,30 @@ python sampling_script.py \
   -o Balanced_Datasets
 ```
 
+### Batch processing (all CSVs in a folder)
+
+Instead of a single file with `-i`, use `-d/--input_dir` to process **every CSV in a directory at once**. When `-m/--sampling_method` is omitted, the script uses the **default method for the chosen strategy** (`random_over` for `oversampling`, `random_under` for `undersampling`), applying it to each dataset in the folder.
+
+Oversampling (default method `random_over`):
+
+```bash
+python sampling_script.py \
+  -d Reduzidos \
+  -t class \
+  -s oversampling \
+  -o Balanced_Datasets
+```
+
+Undersampling (default method `random_under`):
+
+```bash
+python sampling_script.py \
+  -d Reduzidos \
+  -t class \
+  -s undersampling \
+  -o Balanced_Datasets
+```
+
 - **Expected resources:** up to ~4–8 GB of RAM for the larger datasets; seconds to a few minutes per dataset.
 - **Expected result:** a balanced CSV with an approximately equal class distribution, plus the corresponding `_validation_results.txt` and `_metrics_results.txt` files.
 
@@ -265,7 +289,6 @@ The script runs interactively (asking for confirmation at each step):
 - **Autoencoder (AE):** 300 epochs · latent dimension 128 · `leakyrelu` · dropout 0.10 · layers `128 128` · batch 8 · loss `mean_squared_error` · Adam optimizer · 5 folds.
 - **Variational Autoencoder (VAE):** latent dimension 32 · `leakyrelu` · dropout 0.25 · encoder `128 128` / decoder `160 320` · batch 64 · loss `cross_entropy_kl` · Adam optimizer · 5 folds.
 
-- **Expected resources:** intensive training; **GPU recommended**. Each experiment may take **several hours**.
 - **Expected result:** results in `Maldatagen_additional_metrics/outputs/full_experiments/`, logs in `outputs/logs_*/`, and a `summary.txt` with the status (✅ success / ❌ error) of each model × dataset combination.
 
 > 🎲 **Reproducibility:** balancing uses `random_state=42`, ensuring deterministic results across runs in the same environment. In the AE/VAE experiments, small numerical variations may occur due to the stochastic nature of training and to differences in hardware or library versions.
