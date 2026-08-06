@@ -3,13 +3,13 @@ import numpy as np
 from imblearn.over_sampling import SMOTE
 from imblearn.over_sampling import ADASYN
 from imblearn.over_sampling import BorderlineSMOTE
-from imblearn.over_sampling import KMeansSMOTE
+# Removido: KMeansSMOTE (não utilizado)
 from imblearn.under_sampling import RandomUnderSampler
 from imblearn.over_sampling import RandomOverSampler
 from imblearn.under_sampling import TomekLinks
 from imblearn.under_sampling import EditedNearestNeighbours
 from imblearn.under_sampling import NearMiss
-from imblearn.under_sampling import ClusterCentroids
+# Removido: ClusterCentroids (não utilizado)
 import argparse
 import time
 import os
@@ -18,26 +18,26 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import f1_score
-from sklearn.metrics import log_loss
-from sklearn.metrics import mean_squared_error
-from sklearn.metrics import pairwise
+# Removido: log_loss (não utilizado)
+# Removido: mean_squared_error (não utilizado)
+# Removido: pairwise (não utilizado)
 from sklearn.model_selection import train_test_split
-def __get_instance_random_forest(x_samples_training, y_samples_training, dataset_type= 'int8'):
 
 
-        x_samples_training = np.array(x_samples_training, dtype=dataset_type)
-        y_samples_training = np.array(y_samples_training, dtype=dataset_type)
+def __get_instance_random_forest(x_samples_training, y_samples_training, dataset_type='int8'):
+    x_samples_training = np.array(x_samples_training, dtype=dataset_type)
+    y_samples_training = np.array(y_samples_training, dtype=dataset_type)
 
-        instance_model_classifier = RandomForestClassifier(n_estimators=100,
-                                                           max_depth=None,
-                                                           max_leaf_nodes=None)
-        instance_model_classifier.fit(x_samples_training, y_samples_training)
+    instance_model_classifier = RandomForestClassifier(n_estimators=100,
+                                                       max_depth=None,
+                                                       max_leaf_nodes=None)
+    instance_model_classifier.fit(x_samples_training, y_samples_training)
+
+    return instance_model_classifier
 
 
-        return instance_model_classifier
+# Removido: list_of_strs (não utilizado)
 
-def list_of_strs(arg):
-    return list(map(str, arg.split(',')))
 
 SAMPLING_METHODS = {
     "random_over": {
@@ -91,10 +91,10 @@ def argumentos():
                         help='Pasta com datasets CSV para processar em lote')
     parser.add_argument('-o', '--output_dir', type=str, required=False,
                         help='Pasta de saida para os datasets balanceados')
-    parser.add_argument('-t','--target_class', type=str, required=True,
-                        help='Nome da coluna contendo a classe minoritaria')
-    parser.add_argument('-s','--sampling_strategy', type=str, required=True,
-                        help='metodo de sampling i.e over ou under',  choices=['undersampling','oversampling'])
+    parser.add_argument('-t', '--target_class', type=str, required=True,
+                        help='Nome da coluna de rótulo (binária, 0/1)')  # Corrigido
+    parser.add_argument('-s', '--sampling_strategy', type=str, required=True,
+                        help='metodo de sampling i.e over ou under', choices=['undersampling', 'oversampling'])
     parser.add_argument(
         '-m', '--sampling_method',
         type=str,
@@ -103,8 +103,8 @@ def argumentos():
         choices=list(SAMPLING_METHODS.keys()),
         help=(
             "Tecnica de balanceamento. "
-            "Over: random_over, smote, adasyn, borderline_smote, kmeans_smote. "
-            "Under: random_under, tomek_links, enn, nearmiss, cluster_centroids. "
+            "Over: random_over, smote, adasyn, borderline_smote. "  # Removido kmeans_smote
+            "Under: random_under, tomek_links, enn, nearmiss. "     # Removido cluster_centroids
             "Obs.: tomek_links e enn aplicam RandomUnderSampler apos a limpeza para balancear o dataset."
         )
     )
@@ -273,7 +273,6 @@ def process_dataset(input_path, arguments, method):
     selected_method = SAMPLING_METHODS[method]
     X_resampled, y_resampled = apply_sampler(method, X, y)
 
-
     X_resampled_df = pd.DataFrame(X_resampled, columns=X.columns)
     X_resampled_df = (X_resampled_df >= 0.5).astype(np.uint8)
     y_resampled_series = pd.Series(y_resampled, name=arguments.target_class)
@@ -299,12 +298,10 @@ def process_dataset(input_path, arguments, method):
     time.sleep(0.5)
     validation(new_file_name, arguments.target_class)
 
-
     X_train, X_test, y_train, y_test = train_test_split(X.values, y.values, test_size=0.20, random_state=42)
     X_train_mod, X_test_mod, y_train_mod, y_test_mod = train_test_split(
         X_resampled_df.values, y_resampled_series.values, test_size=0.20, random_state=42
     )
-
 
     rd = __get_instance_random_forest(X_train, y_train)
 
@@ -312,19 +309,20 @@ def process_dataset(input_path, arguments, method):
     y_predicted = rd.predict(X_test)
     output_filename = new_file_name.replace('.csv', '') + "_metrics_results.txt"
     with open(output_filename, "w") as f:
-            print("\nMétricas testando com os dados reais:", file=f)
-            print("Acurácia:", accuracy_score(y_test, y_predicted), file=f)
-            print("Precisão:", precision_score(y_test, y_predicted), file=f)
-            print("Recall:", recall_score(y_test, y_predicted), file=f)
-            print("F1-Score:", f1_score(y_test, y_predicted), file=f)
+        print("\nMétricas testando com os dados reais:", file=f)
+        print("Acurácia:", accuracy_score(y_test, y_predicted), file=f)
+        print("Precisão:", precision_score(y_test, y_predicted), file=f)
+        print("Recall:", recall_score(y_test, y_predicted), file=f)
+        print("F1-Score:", f1_score(y_test, y_predicted), file=f)
 
-            print("\nMétricas testando com os dados transformados:", file=f)
-            print("Acurácia:", accuracy_score(y_test_mod, y_predicted_mod), file=f)
-            print("Precisão:", precision_score(y_test_mod, y_predicted_mod), file=f)
-            print("Recall:", recall_score(y_test_mod, y_predicted_mod), file=f)
-            print("F1-Score:", f1_score(y_test_mod, y_predicted_mod), file=f)
+        print("\nMétricas testando com os dados transformados:", file=f)
+        print("Acurácia:", accuracy_score(y_test_mod, y_predicted_mod), file=f)
+        print("Precisão:", precision_score(y_test_mod, y_predicted_mod), file=f)
+        print("Recall:", recall_score(y_test_mod, y_predicted_mod), file=f)
+        print("F1-Score:", f1_score(y_test_mod, y_predicted_mod), file=f)
 
     return True
+
 
 if __name__ == "__main__":
     arguments = argumentos()
