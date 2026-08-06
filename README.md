@@ -272,8 +272,8 @@ python sampling_script.py \
 After generating the balanced datasets (previous stage, with output in `Balanced_Datasets/`), run the full pipeline:
 
 ```bash
-chmod +x maldatagen_execution.sh
-./maldatagen_execution.sh
+ ./setup_data_maldatagen.sh dataset_path/
+./run_maldatagen.sh
 ```
 
 The script runs interactively (asking for confirmation at each step):
