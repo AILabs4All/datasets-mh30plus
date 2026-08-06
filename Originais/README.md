@@ -1,7 +1,8 @@
-#Description
+# Description
+
 This folder contains all the original datasets before being transformed or further processed by the authors, originally obtained from: https://github.com/Malware-Hunter/datasets
 
-#Overview 
+# Overview 
 
 | Dataset                         | Samples | Features | Type Features                   | Size (KB) | Malwares | Benigns |
 | ------------------------------- | ------- | -------- | ------------------------------- | --------- | -------- | ------- |
