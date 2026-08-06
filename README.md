@@ -220,7 +220,7 @@ Reproduces the balanced versions from the dataset table. Example for `kronodroid
 
 ```bash
 python sampling_script.py \
-  -i Reduzidos/kronodroid_emulator.csv \
+  -i Reduzidos/statistical_kronodroid_emulator.csv \
   -t class \
   -s oversampling \
   -m smote \
@@ -231,7 +231,7 @@ For *undersampling*, example with `mh100k` (ENN + RandomUnderSampler):
 
 ```bash
 python sampling_script.py \
-  -i Reduzidos/kronodroid_emulator.csv \
+  -i Reduzidos/statistical_kronodroid_emulator.csv \
   -t class \
   -s undersampling \
   -m enn \
