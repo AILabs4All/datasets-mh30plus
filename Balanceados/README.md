@@ -2,7 +2,8 @@
 This folder contains the balanced datasets used and create for the experiments of the paper, it's structure is divided in two sub-folders:(1)Oversampling/ and (2)Oversampling/; which contain datasets processed with their naming scheme methods.
 
 
-#Specifications
+# Overview
+
 The specifications as well as the amount of benign and malign samples can be found in table below
 
 | Dataset             | Original (B/M)            | Undersampling (B/M + technique)          | Oversampling (B/M + technique)      |
