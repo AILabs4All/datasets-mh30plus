@@ -4,7 +4,7 @@ This folder contains the balanced datasets used and create for the experiments o
 
 # Overview
 
-The specifications as well as the amount of benign and malign samples can be found in table below
+The specifications as well as the amount of benign and malign samples after and before are listed in the table.
 
 | Dataset             | Original (B/M)            | Undersampling (B/M + technique)          | Oversampling (B/M + technique)      |
 |---------------------|---------------------------|------------------------------------------|-------------------------------------|
