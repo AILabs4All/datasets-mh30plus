@@ -173,7 +173,7 @@ The minimal test applies a simple, fast *oversampling* method to a single reduce
 
 ```bash
 python sampling_script.py \
-  --input_dataset Reduzidos/drebin215.csv \
+  --input_dataset Reduzidos/rfe_drebin215.csv \
   --target_class class \
   --sampling_strategy oversampling \
   --sampling_method random_over \
