@@ -93,10 +93,12 @@ Dependencies are listed in `requirements.txt`:
 | `scipy`            | ≥ 1.7.0         |
 | `joblib`           | ≥ 1.1.0         |
 
+> 📁 **Note:**different versions of the packages may  cause slight differences in the results.
+
 ### AE/VAE pipeline (`maldatagen_execution.sh`)
 
 In addition to the above, the pipeline requires the external `Maldatagen_additional_metrics` repository and its dependencies (installed automatically by the script from that repository's `requirements.txt`, or, if absent, `tensorflow`, `keras`, `matplotlib`, and `seaborn`). **`git`** and **`python3`** must also be available on the `PATH`.
-
+ 
 **Datasets used** (included in the repository, under `Originais/`, `Reduzidos/`, and `Balanceados/`):
 
 | Dataset | Selection | Features (Full) | Features (Red.) | Under (Ben/Mal) | Over (Ben/Mal) | Undersampling | Oversampling |
